@@ -1,0 +1,3 @@
+Adlists
+- https://firebog.net/
+- https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
