@@ -14,7 +14,7 @@ echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 echo ''
 echo "Installing Docker..."
 sudo apt-get update 
-sudo apt install -y docker docker-compose
+sudo apt install -y docker docker-compose curl
 
 # Allow usage of docker without sudo
 sudo usermod -aG docker $USER
@@ -40,3 +40,6 @@ docker-compose up -d
 echo "Installing WatchTower"
 cd ~/raspi-sb/watchtower
 docker-compose up -d
+
+echo "Installing Wireguard"
+curl -L https://install.pivpn.io | bash
