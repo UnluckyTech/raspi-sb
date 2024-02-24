@@ -1,4 +1,4 @@
-![Banner](https://github.com/UnluckyTech/raspi-sb/blob/main/image/banner.png)
+![Banner](https://github.com/UnluckyTech/raspi-sb/blob/main/image/pibanner.png)
 
 :warning: LOOK OVER CODE BEFORE USING. BREAKING CHANGES OCCUR DAILY :warning:
 
