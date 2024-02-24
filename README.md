@@ -30,5 +30,6 @@ chmod +x ./main.sh
 ### Containers
 - WatchTower (Automate Updates)
 - PiHole (Block Ads/Malicious Sites)
+- Portainer (Monitor Active Containers)
 - WireGuard (Utilize Benefits outside of home network)
 
