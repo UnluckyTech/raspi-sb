@@ -1,35 +1,29 @@
 #!/bin/bash
 source .install/variable.sh
+source .install/colors.sh
 clear
 
+cat <<"EOF"
+  _____           _____ _        _____ ____  
+ |  __ \         |  __ (_)      / ____|  _ \ 
+ | |__) |__ _ ___| |__) | _____| (___ | |_) |
+ |  _  // _` / __|  ___/ |______\___ \|  _ < 
+ | | \ \ (_| \__ \ |   | |      ____) | |_) |
+ |_|  \_\__,_|___/_|   |_|     |_____/|____/ 
+                                             
+                                                                 
+EOF
+echo -e "${NONE}"
+echo "Version: $version"
+echo "by UnluckyTech 2024"
 echo ""
-echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-echo "%%%%%                                                                    %%%%%"
-echo "%%%%%                  Beginning Installation of RasPi-SB                %%%%%"
-echo "%%%%%                       Report any issues here...                    %%%%%"
-echo "%%%%%             https://github.com/UnluckyTech/raspi-sb/issues         %%%%%"
-echo "%%%%%                                                                    %%%%%"
-echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
-echo ''
-
+echo "Installing Required Packages..."
+source .install/prereq.sh
+source .install/start.sh
 source .install/docker.sh
 source .install/portainer.sh
-
-echo "Installing Pihole"
-cp -rf pihole/ ~/ 
-cd ~/pihole
-compose_file=~/pihole/docker-compose.yml
-# Create password to access pihole web interface.
-read -p "Enter the desired password: " user_password
-sed -i "s/WEBPASSWORD: 'set a secure password here or it will be random'/WEBPASSWORD: '$user_password'/" "$compose_file"
-echo "Password updated successfully!"
-docker-compose up -d
-
-echo "Installing WatchTower"
-cd ~/raspi-sb/watchtower
-docker-compose up -d
+source .install/pihole.sh
+source .install/watchtower.sh
 
 echo "Installing Wireguard"
 curl -L https://install.pivpn.io | bash
