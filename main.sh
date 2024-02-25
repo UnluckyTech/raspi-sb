@@ -1,5 +1,6 @@
 #!/bin/bash
-ip_addr=$(ip a show eth0 | grep -oP '(?<=inet\s)\d+(\.\d+){3}')
+source .install/variable.sh
+clear
 
 echo ""
 echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
@@ -12,20 +13,9 @@ echo "%%%%%                                                                    %
 echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
 echo ''
-echo "Installing Docker..."
-sudo apt-get update 
-sudo apt install -y docker docker-compose curl
 
-# Allow usage of docker without sudo
-sudo usermod -aG docker $USER
-newgrp docker
-
-echo "Installing Portainer"
-docker volume create portainer_data
-docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce:latest
-
-echo "Portainer Installed"
-echo "https://${ip_addr}:9443"
+source .install/docker.sh
+source .install/portainer.sh
 
 echo "Installing Pihole"
 cp -rf pihole/ ~/ 
