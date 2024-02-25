@@ -7,8 +7,8 @@ compose_file=~/pihole/docker-compose.yml
 read -p "Enter the desired password: " user_password
 sed -i "s/WEBPASSWORD: 'set a secure password here or it will be random'/WEBPASSWORD: '$user_password'/" "$compose_file"
 echo "Password updated successfully!"
-docker-compose up -d
-if docker ps | grep -q "pihole"; then
+sudo docker-compose up -d
+if sudo docker ps | grep -q "pihole"; then
     echo "Pihole is now installed."
     echo "https://${ip_addr}/admin"
     sleep 1

@@ -27,3 +27,5 @@ source .install/watchtower.sh
 
 echo "Installing Wireguard"
 curl -L https://install.pivpn.io | bash
+
+source .install/summary.sh
