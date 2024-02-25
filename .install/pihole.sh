@@ -8,6 +8,7 @@ read -p "Enter the desired password: " user_password
 sed -i "s/WEBPASSWORD: 'set a secure password here or it will be random'/WEBPASSWORD: '$user_password'/" "$compose_file"
 echo "Password updated successfully!"
 sudo docker-compose up -d
+cd ~/raspi-sb
 if sudo docker ps | grep -q "pihole"; then
     echo "Pihole is now installed."
     echo "https://${ip_addr}/admin"
