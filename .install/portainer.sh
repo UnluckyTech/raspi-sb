@@ -6,7 +6,6 @@ sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always -
 if sudo docker ps | grep -q "portainer"; then
     echo "Portainer is now installed."
     echo "https://${ip_addr}:9443"
-    sleep 1
 else
     echo "Portainer is not running. Please check your installation."
 fi

@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Installing Pihole"
-cp -rf pihole/ ~/ 
+cp -rf ~/raspi-sb/pihole/ ~/ 
 cd ~/pihole
 compose_file=~/pihole/docker-compose.yml
 # Create password to access pihole web interface.
@@ -14,5 +14,5 @@ if sudo docker ps | grep -q "pihole"; then
     echo "https://${ip_addr}/admin"
     sleep 1
 else
-    echo "Portainer is not running. Please check your installation."
+    echo "Pihole is not running. Please check your installation."
 fi
