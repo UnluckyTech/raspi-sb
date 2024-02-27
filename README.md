@@ -31,5 +31,16 @@ chmod +x ./main.sh
 - WatchTower (Automate Updates)
 - PiHole (Block Ads/Malicious Sites)
 - Portainer (Monitor Active Containers)
-- WireGuard (Utilize Benefits outside of home network)
+- TailScale (Utilize Benefits outside of home network)
+- Fail2Ban (Prevent botting/bruteforce)
+- UFW (FireWall)
+- Unbound (Secure DNS)
+- Watchdog (Reboot on Crash)
 
+### Notes
+
+Currently the script partially utilizes docker but overtime will continue to migrate almost everything into such. 
+May use either "homepage" or "heimdall" as a mainpage to access all the containers.
+
+Switched to TailScale from WireGuard to prevent opening ports on network. Also alot easier for anyone to access compared to either wireguard/openvpn.
+Ideally want all configs preset on install to make hassle-free.
