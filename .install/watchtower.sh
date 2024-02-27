@@ -3,6 +3,7 @@ echo "Installing WatchTower"
 cp -rf ~/raspi-sb/watchtower/ ~/ 
 cd ~/watchtower
 sudo docker-compose up -d
+cd ~/raspi-sb
 if sudo docker ps | grep -q "watchtower"; then
     echo "WatchTower is now installed."
     sleep 1
