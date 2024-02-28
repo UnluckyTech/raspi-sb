@@ -7,7 +7,7 @@ compose_file=~/pihole/docker-compose.yml
 pi_password=$(openssl rand -base64 12 | tr -dc 'a-zA-Z0-9' | head -c 12)
 # Create password to access pihole web interface.
 # read -p "Enter the desired password: " user_password
-sed -i 's/WEBPASSWORD: '\''set a secure password here or it will be random'\''/WEBPASSWORD: '\'''"$pi_password"'\'\''/' "$compose_file" echo "PiHole admin password is ${pi_password}"
+sed -i "/WEBPASSWORD:/c\    WEBPASSWORD: '$pi_password'" "$compose_file" echo "PiHole admin password is ${pi_password}"
 sudo docker-compose up -d
 cd ~/raspi-sb
 if sudo docker ps | grep -q "pihole"; then
