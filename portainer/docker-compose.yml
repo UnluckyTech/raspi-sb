@@ -7,5 +7,5 @@ services:
       - 9443:9443
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock 
-      - /home/${user}/portainer:/data
+      - /portainer:/data
     restart: always

@@ -12,7 +12,7 @@
           - PGID=1000
           - TZ=Etc/UTC
         volumes:
-          - /home/${user}/fail2ban/config:/config
-          - /home/${user}/fail2ban/log:/var/log:ro
+          - /fail2ban/config:/config
+          - /fail2ban/log:/var/log:ro
         restart: unless-stopped
     

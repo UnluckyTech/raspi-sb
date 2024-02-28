@@ -1,6 +1,7 @@
 #!/bin/bash
 cp -rf ~/raspi-sb/portainer/ ~/ 
 cd ~/portainer
+sed -i "s|- /portainer:/data|- /home/${user}/portainer:/data|" docker-compose.yml
 sudo docker-compose up -d
 cd ~/raspi-sb
 # Check if Portainer container is running
