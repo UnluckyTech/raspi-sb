@@ -25,6 +25,7 @@ source .install/portainer.sh
 source .install/pihole.sh
 source .install/watchtower.sh
 source .install/fail2ban.sh
+source .install/unbound.sh
 source .install/homepage.sh
 source .install/tailscale.sh
 source .install/ufw.sh
