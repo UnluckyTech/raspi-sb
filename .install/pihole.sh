@@ -4,10 +4,9 @@ cp -rf ~/raspi-sb/pihole/ ~/
 cd ~/pihole
 sed -i "s|- /pihole/etc-pihole:/etc/pihole|- /home/${user}/pihole/etc-pihole:/etc/pihole|" docker-compose.yml
 sed -i "s|- /pihole/etc-dnsmasq.d:/etc/dnsmasq.d|- /home/${user}/pihole/etc-dnsmasq.d:/etc/dnsmasq.d|" docker-compose.yml
-compose_file=~/raspi-sb/pihole/docker-compose.yml
 # Create password to access pihole web interface.
 user_password=$(pwgen -s 12 1)
-sed -i "s/WEBPASSWORD: 'set a secure password here or it will be random'/WEBPASSWORD: '$user_password'/" "$compose_file"
+sed -i "s/WEBPASSWORD: 'set a secure password here or it will be random'/WEBPASSWORD: '$user_password'/" docker-compose.yml
 echo "Password updated successfully!"
 sudo docker-compose up -d
 cd ~/raspi-sb
