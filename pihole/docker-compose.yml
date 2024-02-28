@@ -13,7 +13,7 @@ services:
       - "80:80/tcp"
     environment:
       TZ: 'America/Chicago'
-      WEBPASSWORD: 'set a secure password here or it will be random'
+      WEBPASSWORD: 
     # Volumes store your data between container upgrades
     volumes:
       - '/home/${user}/pihole/etc-pihole:/etc/pihole'
@@ -22,4 +22,4 @@ services:
     cap_add:
       - NET_ADMIN # Required if you are using Pi-hole as your DHCP server, else not needed
     network_mode: host
-      restart: unless-stopped
+    restart: unless-stopped

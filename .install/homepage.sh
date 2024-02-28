@@ -5,7 +5,7 @@ cp -rf ~/raspi-sb/homepage/ ~/
 cd ~/homepage
 
 sudo docker-compose up -d
-cd ~/homepage
+cd ~/raspi-sb
 if sudo docker ps | grep -q "homepage"; then
     echo "Homepage is now installed."
     echo "https://${ip_addr}:3000"
