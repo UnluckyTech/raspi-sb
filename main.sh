@@ -30,7 +30,7 @@ source .install/homepage.sh
 source .install/tailscale.sh
 source .install/ufw.sh
 
-sudo tailscale up
+# sudo tailscale up
 
 source .install/summary.sh
 
