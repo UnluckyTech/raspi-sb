@@ -3,5 +3,5 @@
 echo "Access Containers Below..."
 echo $portainer
 echo $pihole
-echo $heimdalls
-echo "PiHole Admin Pass: ${pi_password}"
+echo "PiHole Admin Pass: ${user_password}"
+exit
