@@ -2,15 +2,12 @@
 
 echo "Installing Tailscale"
 
-sudo apt install lsb-release curl
-curl -L https://pkgs.tailscale.com/stable/raspbian/$(lsb_release -cs).noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg >/dev/null
-echo "deb [signed-by=/usr/share/keyrings/tailscale-archive-keyring.gpg] https://pkgs.tailscale.com/stable/raspbian $(lsb_release -cs) main" | sudo tee  /etc/apt/sources.list.d/tailscale.list
-sudo apt update
-
-sudo apt install -y tailscale
-
+curl -fsSL https://tailscale.com/install.sh | sh
+echo 'net.ipv4.ip_forward = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+echo 'net.ipv6.conf.all.forwarding = 1' | sudo tee -a /etc/sysctl.d/99-tailscale.conf
+sudo sysctl -p /etc/sysctl.d/99-tailscale.conf
 # insert this at the end of the script when everything is finished.
-# sudo tailscale up
+# sudo tailscale up --advertise-exit-node
 
 # cp -rf ~/raspi-sb/tailscale/ ~/
 # cd ~/tailscale 
