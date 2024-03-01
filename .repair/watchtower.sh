@@ -3,7 +3,7 @@ watchtower_container_id=$(sudo docker ps -a --filter "name=watchtower" --format 
 rm -rf ~/watchtower
 
 sudo docker kill $watchtower_container_id
-sudo docker prune
+yes | sudo docker system prune
 
 if command -v docker &> /dev/null; then
     echo "Installing WatchTower"

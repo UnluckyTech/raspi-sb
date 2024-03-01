@@ -3,7 +3,7 @@ pihole_container_id=$(sudo docker ps -a --filter "name=pihole" --format "{{.ID}}
 rm -rf ~/pihole
 
 sudo docker kill $pihole_container_id
-sudo docker prune
+yes | sudo docker system prune
 
 if command -v docker &> /dev/null; then
     echo "Installing Pihole"

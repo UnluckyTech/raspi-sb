@@ -3,7 +3,7 @@ portainer_container_id=$(sudo docker ps -a --filter "name=portainer" --format "{
 rm -rf ~/portainer
 
 sudo docker kill $portainer_container_id
-sudo docker prune
+yes | sudo docker system prune
 
 if command -v docker &> /dev/null; then
     cp -rf ~/raspi-sb/portainer/ ~/ 

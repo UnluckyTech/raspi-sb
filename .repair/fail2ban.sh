@@ -3,7 +3,7 @@ fail2ban_container_id=$(sudo docker ps -a --filter "name=fail2ban" --format "{{.
 rm -rf ~/fail2ban
 
 sudo docker kill $fail2ban_container_id
-sudo docker prune
+yes | sudo docker system prune
 
 
 if command -v docker &> /dev/null; then
