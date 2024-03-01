@@ -19,9 +19,10 @@ EOF
   echo "Version: $version"
   echo "by UnluckyTech 2024"
   echo ""
-  source .install/start.sh
+  sleep 3
   echo "Installing Required Packages..."
   source .install/prereq.sh
+  source .install/start.sh
   echo ''
   echo '*********************************'
   echo '******* Select Installation *****'
