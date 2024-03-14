@@ -21,5 +21,14 @@ else
     sudo apt install -y pwgen
 fi
 
+# Check if "feh" is installed
+if dpkg -s "feh" &> /dev/null; then
+    echo "Package 'feh' is already installed."
+else
+    # Install "feh"
+    sudo apt update && sudo apt -y upgrade
+    sudo apt install -y feh
+fi
+
 # Update and upgrade
 sudo apt update && sudo apt -y upgrade

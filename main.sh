@@ -41,6 +41,7 @@ EOF
     # source .install/tailscale.sh
     # source .install/ufw.sh
     source .install/summary.sh
+    source .install/wifi.sh
   elif [[ $option == "2" ]]; then
     source .install/custom.sh
   elif [[ $option == "3" ]]; then
