@@ -20,4 +20,3 @@ WIFI_CONFIG="WIFI:T:$SECURITY;S:$SSID;P:$PASSWORD;DNS1:$DNS_SERVER;;"
 qrencode -o wifi_config_qr.png "$WIFI_CONFIG"
 
 echo "Wi-Fi QR code generated!"
-feh wifi_config_qr.png
