@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source .install/variable.sh
+source ~/raspi-box/.install/variable.sh
 
 # Scan for available Wi-Fi networks and extract the BSSID and security type of the network with the strongest signal
 read -r bssid <<< $(nmcli device wifi list | awk 'NR==1 {next} {print $1}' | sort -k5nr | head -n 1)
