@@ -3,8 +3,7 @@
 source .install/variable.sh
 
 # Scan for available Wi-Fi networks and extract the SSID and security type of the network with the strongest signal
-read -r strongest_ssid security_type <<< $(nmcli device wifi list | awk 'NR==1 {next} {print $1, $5}' | sort -k6nr | head -n 1)
-
+read -r strongest_ssid security_type <<< $(nmcli device wifi list | awk 'NR==1 {next} {print $1, $2, $5}' | sort -k3nr | head -n 1)
 # Display the SSID and security type of the strongest Wi-Fi network
 echo "Strongest Wi-Fi network SSID: $strongest_ssid"
 echo "Security type: $security_type"
