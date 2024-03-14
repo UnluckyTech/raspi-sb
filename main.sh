@@ -34,7 +34,7 @@ EOF
   read option
   if [[ $option == "1" ]]; then
     source .install/docker.sh
-    source .install/portainer.sh
+    # source .install/portainer.sh
     source .install/pihole.sh
     source .install/watchtower.sh
     source .install/fail2ban.sh
