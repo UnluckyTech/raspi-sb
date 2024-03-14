@@ -1,6 +1,6 @@
 #!/bin/bash
-
-source ~/raspi-box/.install/variable.sh
+user=$(whoami)
+source /home/$user/raspi-sb/.install/variable.sh
 
 # Scan for available Wi-Fi networks and extract the BSSID and security type of the network with the strongest signal
 read -r bssid <<< $(nmcli device wifi list | awk 'NR==1 {next} {print $1}' | sort -k5nr | head -n 1)
@@ -14,8 +14,8 @@ read PASSWORD
 
 # Display the SSID and security type of the strongest Wi-Fi network
 echo "Strongest Wi-Fi network SSID: $SSID"
-echo "Security type: $security_type"
-
+echo "Security type: $SECURITY"
+echo "DNS_Server: $ip_addr
 
 
 # Encode Wi-Fi configuration into a QR code
